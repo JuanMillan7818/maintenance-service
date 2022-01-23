@@ -12,5 +12,11 @@ export class User {
     last_name: string;
 
     @Column({name: 'email', type: 'varchar', unique: true, length: 100})
-    email: string;    
+    email: string;   
+    
+    @Column({name: 'username', type: 'varchar', length: 40})
+    username: string;
+    
+    @Column({name: 'user_password', type: 'varchar', length: 100})
+    password: string;
 }

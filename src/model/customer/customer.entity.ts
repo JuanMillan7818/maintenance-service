@@ -1,5 +1,5 @@
 import { Column, Entity, JoinColumn, OneToOne, PrimaryColumn } from "typeorm";
-import { User } from "../user/users.entity";
+import { User } from "../user/user.entity";
 
 @Entity({name: 'customers'})
 export class Customer {
@@ -8,9 +8,6 @@ export class Customer {
     @JoinColumn({name: 'id_customer'})
     id_customer: number    
 
-    @Column({name: 'username', type: 'varchar', length: 40})
-    username: string;
-    
-    @Column({name: 'user_password', type: 'varchar', length: 100})
-    password: string
+    @Column({name: 'date_start', type: 'timestamp', default: 'CURRENT_TIMESTAMP'})
+    date_start: Date;
 }

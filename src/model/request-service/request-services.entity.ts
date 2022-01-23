@@ -1,12 +1,12 @@
-import { Column, Entity, JoinColumn, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, OneToMany, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
 import { Customer } from "../customer/customer.entity";
 import { Expert } from "../expert/expert.entity";
 import { Maintenance } from "../maintenance/maintenance.entity";
 
 @Entity({name: 'request_services'})
 export class RequestServices {
-    @PrimaryGeneratedColumn({name: 'id_request'})
-    id_request: number;
+    @PrimaryColumn({name: 'id_request', type: 'varchar', length: 100})
+    id_request: string;
 
     @OneToMany(() => Customer, id => id.id_customer)
     @JoinColumn({name: 'id_customer'})
