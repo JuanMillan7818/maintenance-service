@@ -43,6 +43,7 @@ CREATE TABLE request_services (
     id_customer INTEGER NOT NULL,
     id_expert INTEGER NOT NULL,
     id_service INTEGER NOT NULL,
+    status BOOLEAN NOT NULL,
     date_service TIMESTAMP DEFAULT CURRENT_TIMESTAMP,    
     CONSTRAINT FK_refer_customer FOREIGN KEY(id_customer) REFERENCES customers(id_customer),
     CONSTRAINT FK_refer_expert FOREIGN KEY(id_expert) REFERENCES experts(id_expert),

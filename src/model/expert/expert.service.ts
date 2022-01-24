@@ -12,4 +12,14 @@ export class ExpertService {
     findAll() : Promise<Expert[]> {
         return this.expertRepository.find();
     }
+
+    async getExpertRandom(): Promise<Expert> {
+        const listExperts: Expert[] = await this.findAll();
+        let indexRandom: number = Math.floor(
+            Math.random() * (listExperts.length - 1) + 1);
+        
+        console.log(indexRandom);
+        return listExperts.at(indexRandom);
+        
+    }
 }

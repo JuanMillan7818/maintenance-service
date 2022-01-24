@@ -12,4 +12,8 @@ export class MaintenanceService {
     findAll(): Promise<Maintenance[]> {
         return this.maintenanceRepository.find();
     }
+
+    createTypeMaintenance(data: Maintenance): Promise<Maintenance> {
+        return this.maintenanceRepository.save(data);
+    }
 }
