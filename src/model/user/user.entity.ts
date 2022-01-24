@@ -2,6 +2,14 @@ import { Column, Entity, PrimaryGeneratedColumn, Unique } from "typeorm";
 
 @Entity({name: 'users'})
 export class User {
+    constructor(name: string, last_name: string, email: string, username: string, pass: string) {
+        this.first_name = name;
+        this.last_name = last_name;
+        this.email = email;
+        this.username = username;
+        this.password = pass;
+    }
+
     @PrimaryGeneratedColumn()    
     id_user: number;    
 

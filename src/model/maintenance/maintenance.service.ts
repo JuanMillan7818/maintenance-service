@@ -13,7 +13,15 @@ export class MaintenanceService {
         return this.maintenanceRepository.find();
     }
 
+    findOne(id: string): Promise<Maintenance> {
+        return this.maintenanceRepository.findOne({where: {id_service: id}});
+    }
+
     createTypeMaintenance(data: Maintenance): Promise<Maintenance> {
         return this.maintenanceRepository.save(data);
     }
+
+    deleteTypeMaintenance(data: Maintenance): Promise<Maintenance> {
+        return this.maintenanceRepository.remove(data);
+    }    
 }

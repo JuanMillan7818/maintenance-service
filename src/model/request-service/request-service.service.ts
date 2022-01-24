@@ -18,11 +18,15 @@ export class RequestServiceService {
         private requestRepository: Repository<RequestServices>,
         private connection: Connection) {}
     
-    public findAll(): Promise<RequestServices[]> {
+    findAll(): Promise<RequestServices[]> {
         return this.requestRepository.find();
     }
 
-    public createService(data: RequestServices): Promise<RequestServices> {
+    findOne(id: string): Promise<RequestServices> {
+        return this.requestRepository.findOne({where: {id_request: id}});
+    }
+
+    createService(data: RequestServices): Promise<RequestServices> {
         return this.requestRepository.save(data);
     }    
 
@@ -55,5 +59,9 @@ export class RequestServiceService {
             expert: null,
             result: null
         };
+    }
+
+    deleteRequestService(data: RequestServices): Promise<RequestServices> {
+        return this.requestRepository.remove(data);
     }
 }
