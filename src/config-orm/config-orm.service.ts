@@ -12,7 +12,8 @@ export class ConfigOrmService {
             password: process.env.POSTGRES_PASSWORD,
             database: process.env.POSTGRES_DB,
             entities: ['dist/**/*.entity{.ts,.js}'],
-            synchronize: true,           
+            //synchronize: true,           
+            autoLoadEntities: true
         }
     }
 }
