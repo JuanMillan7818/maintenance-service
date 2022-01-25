@@ -40,11 +40,7 @@ export class ExpertController {
                 throw new Error('Wrong parameter data type');
             }   
             let result = await this.service.findServices(id);                        
-            
-            if(result.length === 0) {                
-                code_http = HttpStatus.NO_CONTENT;
-                throw new Error('There is no record with the provided id');                
-            }
+                       
             return result;
         } catch (error) {
             throw new HttpException(
@@ -66,7 +62,7 @@ export class ExpertController {
                 throw new Error('Wrong parameter data type');                
             }
             let result = await this.service.findOne(id);
-            if(!result) {
+            if(!result[0]) {
                 code_http = HttpStatus.NO_CONTENT;
                 throw new Error('There is no record with the provided id');
             }

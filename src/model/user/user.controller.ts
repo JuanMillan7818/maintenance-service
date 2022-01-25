@@ -79,23 +79,4 @@ export class UserController {
                 HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
-    @Delete(':id')
-    public async deleteUser(@Param('id') id: number) {
-        let request: User;                
-        try {
-            if(!id) {
-                throw new Error('To perform the DELETE operation, you must indicate the id you want to remove');                
-            }       
-            request = await this.service.findOne(id);            
-            if(!request) {          
-                throw new Error('Make sure the id you want to remove exists');
-            }
-            return await this.service.deleteUser(request);
-        } catch (error) {        
-            throw new HttpException(
-                `An internal error has occurred, ${error}`,
-                HttpStatus.BAD_GATEWAY);
-        }        
-    }
 }

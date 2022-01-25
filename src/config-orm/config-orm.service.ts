@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
-import { User } from 'src/model/user/user.entity';
 
 @Injectable()
 export class ConfigOrmService {
@@ -15,8 +14,7 @@ export class ConfigOrmService {
             password: process.env.POSTGRES_PASSWORD,
             database: process.env.POSTGRES_DB,
             entities: ['dist/**/*.entity{.ts,.js}'],
-            //entities: [User]    
-            //autoLoadEntities: true
+            synchronize: true,           
         }
     }
 }

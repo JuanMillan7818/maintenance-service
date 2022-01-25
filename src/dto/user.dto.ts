@@ -3,14 +3,14 @@ import { ApiProperty } from "@nestjs/swagger";
 export class ReqCreateUserDTO {
     @ApiProperty({
         description: 'Nombres del usuario que se va a crear',
-        examples: ['Juan Pablo', 'Anderson'],
+        example:'Juan Pablo',
         maxLength: 40
     })
     first_name: string;
 
     @ApiProperty({
         description: 'Apellidos del usuario que se va a crear',
-        examples: ['Millan', 'Hernandez Rodriguez'],
+        example: 'Hernandez Rodriguez',
         maxLength: 40
     })
     last_name: string;    
@@ -24,14 +24,14 @@ export class ReqCreateUserDTO {
 
     @ApiProperty({
         description: 'Nombre unico de usuario para el ingreso al sistema',
-        examples: ['juan123', 'anderson431'],
+        example: 'juan123',
         maxLength: 40
     })
     username: string;
 
     @ApiProperty({
         description: 'Contraseña para ingresar al sistema',
-        examples: ['Juan Pablo', 'Anderson'],
+        example: 'J1an34534',
         maxLength: 100
     })
     password: string;

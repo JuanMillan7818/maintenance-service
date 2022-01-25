@@ -17,21 +17,21 @@ export class RequestServices {
     @PrimaryColumn({name: 'id_request', type: 'varchar', length: 100})
     id_request: string;
 
-    @ManyToOne(() => Customer, id => id.id_customer)
-    @JoinColumn({name: 'id_customer'})
+    @ManyToOne(type => Customer, id => id.id_customer, {eager: true})
+    @JoinColumn({name: 'id_customer', referencedColumnName: 'id_customer'})
     id_customer: number;
 
-    @ManyToOne(() => Expert, id => id.id_expert)
+    @ManyToOne(() => Expert, id => id.id_expert, {eager: true})
     @JoinColumn({name: 'id_expert'})
     id_expert: number;
 
-    @ManyToOne(() => Maintenance, id => id.id_service)
+    @ManyToOne(() => Maintenance, id => id.id_service, {eager: true})
     @JoinColumn({name: 'id_service'})
     id_service: number;
 
     @Column({name: 'status', type: 'boolean'})
     status: boolean;
 
-    @Column({name: 'date_service', type: 'timestamp', default: 'CURRENT_TIMESTAMP'})
+    @Column({name: 'date_service', type: 'timestamp', default: () => 'CURRENT_TIMESTAMP'})
     date_service: Date;
 }

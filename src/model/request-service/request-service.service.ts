@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { DataJoin } from 'src/interfaces/data-join';
-import { Connection, getRepository, Repository } from 'typeorm';
+import { getRepository, Repository } from 'typeorm';
 import { Expert } from '../expert/expert.entity';
 import { RequestServices } from './request-service.entity';
 
@@ -15,8 +15,7 @@ export class RequestServiceService {
 
     constructor(
         @InjectRepository(RequestServices)
-        private requestRepository: Repository<RequestServices>,
-        private connection: Connection) {}
+        private requestRepository: Repository<RequestServices>) {}
     
     findAll(): Promise<RequestServices[]> {
         return this.requestRepository.find();
@@ -36,8 +35,12 @@ export class RequestServiceService {
         try {
             listData = await getRepository(Expert).find();
             if(listData) {
+                console.log('result',listData);
+                
                 indexRandom = Math.floor(
-                    Math.random() * (listData.length - 1) + 1);                                       
+                    Math.random() * (listData.length - 0));                                       
+                    console.log(indexRandom);
+                    
                 let result: DataJoin = await this.requestRepository.query(this.sqlQuerys[0]+listData[indexRandom].id_expert); 
 
                 return {

@@ -2,7 +2,7 @@ CREATE USER juan WITH ENCRYPTED PASSWORD 'JuanAdmin';
 
 ALTER ROLE juan SUPERUSER CREATEDB CREATEROLE INHERIT LOGIN;
 
-CREATE DATABASE MaintenanceService;
+CREATE DATABASE maintenance_service;
 
 USE MaintenanceService;
 
@@ -11,7 +11,7 @@ CREATE TABLE users (
     first_name VARCHAR(40) NOT NULL,
     last_name VARCHAR(40) NOT NULL,
     email VARCHAR(100) NOT NULL UNIQUE,
-    username VARCHAR(40) NOT NULL,
+    username VARCHAR(40) NOT NULL UNIQUE,
     user_password VARCHAR(100) NOT NULL
 );
 

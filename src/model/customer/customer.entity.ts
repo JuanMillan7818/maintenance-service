@@ -12,6 +12,6 @@ export class Customer {
     @JoinColumn({name: 'id_customer'})
     id_customer: number    
 
-    @Column({name: 'date_start', type: 'timestamp', default: 'CURRENT_TIMESTAMP'})
+    @Column({name: 'date_start', type: 'timestamp', default: () => 'CURRENT_TIMESTAMP'})
     date_start: Date;
 }

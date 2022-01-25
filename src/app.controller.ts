@@ -1,8 +1,12 @@
 import { Controller, Get } from '@nestjs/common';
-import { ApiInternalServerErrorResponse, ApiOkResponse } from '@nestjs/swagger';
+import { ApiHeader, ApiInternalServerErrorResponse, ApiOkResponse } from '@nestjs/swagger';
 import { AppService } from './app.service';
 import { Description } from './util/descriptions/descriptions';
 
+@ApiHeader({
+  name: 'x-api-key',
+  description: Description.header
+})
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}

@@ -75,23 +75,4 @@ export class MaintenanceController {
                 HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
-    @Delete(':id')
-    public async deleteServiceMaintenance(@Param('id') id_service: string) {
-        let maintenance: Maintenance;                
-        try {
-            if(!id_service) {
-                throw new Error('To perform the DELETE operation, you must indicate the id you want to remove');                
-            }       
-            maintenance = await this.service.findOne(id_service);            
-            if(!maintenance) {          
-                throw new Error('Make sure the id you want to remove exists');
-            }
-            return await this.service.deleteTypeMaintenance(maintenance);
-        } catch (error) {        
-            throw new HttpException(
-                `An internal error has occurred, ${error}`,
-                HttpStatus.BAD_GATEWAY);
-        }        
-    }
 }
