@@ -12,4 +12,12 @@ export class CustomerService {
     findAll(): Promise<Customer[]> {
         return this.customersRepository.find();
     }
+
+    findOne(id: number): Promise<Customer> {
+        return this.customersRepository.findOne(id);
+    }
+
+    createCustomer(data: Customer): Promise<Customer> {
+        return this.customersRepository.save(data);
+    }
 }

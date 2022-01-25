@@ -1,16 +1,17 @@
+import { ApiProperty } from "@nestjs/swagger";
+
 export class ReqCreateRequestDTO {
+    @ApiProperty({
+        description: 'id asociado al cliente que quiere realizar una solicitud de servicio',        
+        minimum: 1,        
+        example: 1,        
+    })
     id_customer: number;
+
+    @ApiProperty({
+        description: 'id asociado a un servicio que preste la empresa',
+        example: 1,
+        minimum: 1,        
+    })
     id_info_service: number;
-}
-
-export class ResCreareRequesDTO {
-    name_expert_assign: string;
-    last_name_expert_assign: string;
-    number_request: string;   
-
-    constructor(name_expert: string, last_name_expert: string, number_request: string) {
-        this.name_expert_assign = name_expert;
-        this.last_name_expert_assign = last_name_expert;
-        this.number_request = number_request;    
-    }
 }

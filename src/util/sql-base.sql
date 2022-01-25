@@ -100,5 +100,7 @@ INSERT INTO services (text_description, type_service)
     VALUES ('ttttttttttttt', 'instalacion');
 
 -------------------- Solicitud de servicios
+INSERT INTO request_services (id_request, id_customer, id_expert, id_service, status) 
+    VALUES ('REF1212', 1,5,1,f);
 
 DELETE FROM customers;
