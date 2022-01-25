@@ -3,9 +3,7 @@ import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 
 @Injectable()
 export class ConfigOrmService {
-    public getTypeOrmConfig(): TypeOrmModuleOptions {
-        console.log(process.env.POSTGRES_USER);
-        
+    public getTypeOrmConfig(): TypeOrmModuleOptions {          
         return {
             type: 'postgres',
             host: process.env.POSTGRES_HOST,

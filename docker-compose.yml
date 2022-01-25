@@ -1,23 +1,41 @@
 version: '3.8'
 
-services:
+services:    
     dev:
-        container_name: maintenance-services_dev
-        image: maintenance-services-dev:1.0.0
+        container_name: main_dev
+        image: main-dev:1.0.0
         build:
             context: .
             target: development
             dockerfile: ./Dockerfile
-        command: npm run start:debug
-        ports:
-            - 3000:3000
-            - 9229:9229
-        networks:
-            - nesjs-network
+        command: npm run start:dev
         volumes:
             - .:/usr/src/app
             - /usr/src/app/node_modules
+        ports:            
+            - 3000:3000
+            - 9229:9229
+        env_file:
+            - .env
+        networks:
+            - nesjs-network
+        depends_on:
+            - postgres
         restart: unless-stopped
+    postgres:
+        container_name: postgres
+        image: postgres:13.4
+        env_file:
+            - .env
+        networks:
+            - nesjs-network                     
+        ports:
+            - 5432:5432
+        environment:
+            - PG_DATA=db:/var/lib/postgresql/data
+        volumes:
+            - .db:/var/lib/postgresql/data            
+        restart: always
     prod:
         container_name: maintenance-services_prod
         image: maintenance-services-prod:1.0.0
