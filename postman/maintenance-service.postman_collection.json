@@ -1,0 +1,497 @@
+{
+	"info": {
+		"_postman_id": "4db96e7b-8200-4ed9-9c58-88d3e9339ceb",
+		"name": "maintenance-service",
+		"description": "API para administrar los servicios, clientes, tecnicos, y peticiones del servicio",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "users",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "{{ApiKey}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Host}}/user",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"user"
+					]
+				},
+				"description": "Peticion para obtener todos los usuarios que estan registrados en la base de datos."
+			},
+			"response": []
+		},
+		{
+			"name": "customers",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "{{ApiKey}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{Host}}/customer/",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"customer",
+						""
+					]
+				},
+				"description": "Peticion para obtener todos los usuarios que estan registrados como clientes en la base de datos."
+			},
+			"response": []
+		},
+		{
+			"name": "experts",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "{{ApiKey}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{Host}}/expert",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"expert"
+					]
+				},
+				"description": "Peticion para obtener todos los usuarios que estan registrados como tecnicos de la empresa."
+			},
+			"response": []
+		},
+		{
+			"name": "services-maintenance",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "{{ApiKey}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{Host}}/maintenance",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"maintenance"
+					]
+				},
+				"description": "Peticion para obtener todos los servicios que se ofrece en el sistema."
+			},
+			"response": []
+		},
+		{
+			"name": "request-service",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "{{ApiKey}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{Host}}/request-service",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"request-service"
+					]
+				},
+				"description": "Peticion para obtener todas las solicitudes que existen para realizar algun servicio registrado."
+			},
+			"response": []
+		},
+		{
+			"name": "userById",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "{{ApiKey}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{Host}}/user/1",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"user",
+						"1"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				},
+				"description": "Peticion para obtener a un usuario en especifico de entre todos los registrados en la base de datos."
+			},
+			"response": []
+		},
+		{
+			"name": "customerById",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "{{ApiKey}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{Host}}/customer/1",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"customer",
+						"1"
+					]
+				},
+				"description": "Peticion para obrtener un cliente en especifico de entre todos los registrados."
+			},
+			"response": []
+		},
+		{
+			"name": "expertById",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "{{ApiKey}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{Host}}/expert/4",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"expert",
+						"4"
+					]
+				},
+				"description": "Peticion para buscar a un tecnico en especifico de entre todos los que estan registrados en la base de datos."
+			},
+			"response": []
+		},
+		{
+			"name": "services-maintenanceById",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "{{ApiKey}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{Host}}/maintenance/1",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"maintenance",
+						"1"
+					]
+				},
+				"description": "Peticion para buscar un servicio en especifico que ofrezca la empresa."
+			},
+			"response": []
+		},
+		{
+			"name": "request-serviceById",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "{{ApiKey}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{Host}}/request-service/REF42S55S38B17V14L49H34I16Z",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"request-service",
+						"REF42S55S38B17V14L49H34I16Z"
+					]
+				},
+				"description": "Peticion para buscar una solicitud de servicio de entre todas las existentes."
+			},
+			"response": []
+		},
+		{
+			"name": "createUser",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "{{ApiKey}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"first_name\": \"Juan Alberto\",\n    \"last_name\": \"Medina Quintero\",\n    \"email\": \"medina@gmail.com\",\n    \"username\": \"medina009\",\n    \"password\": \"123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Host}}/user",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"user"
+					]
+				},
+				"description": "Peticion para crear un nuevo usuario en el sistema."
+			},
+			"response": []
+		},
+		{
+			"name": "createCustomer",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "{{ApiKey}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id_customer\": 8\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Host}}/customer/",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"customer",
+						""
+					]
+				},
+				"description": "Peticion para registrar un usuario como un cliente en el sistema."
+			},
+			"response": []
+		},
+		{
+			"name": "createExpert",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "{{ApiKey}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id_expert\": 8,\n    \"refer_contract\": \"WD233DSdfe3sds\",\n    \"max_request\": 15\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Host}}/expert",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"expert"
+					]
+				},
+				"description": "Peticion para registrar un usuario como un tecnico de la empresa."
+			},
+			"response": []
+		},
+		{
+			"name": "servicesByExpert",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "{{ApiKey}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{Host}}/expert/services/6",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"expert",
+						"services",
+						"6"
+					]
+				},
+				"description": "Peticion para obtener todos los servicios que tenga asignados un tecnico en especifico."
+			},
+			"response": []
+		},
+		{
+			"name": "createServicesMaintenance",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "{{ApiKey}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"description\": \"Cambios de fusibles\",\n    \"type\": \"Cambio de repuesto\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Host}}/maintenance",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"maintenance"
+					]
+				},
+				"description": "Peticion crear un nuevo servicio que brindara la empresa a sus clientes."
+			},
+			"response": []
+		},
+		{
+			"name": "createRequestService",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "{{ApiKey}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id_customer\": 1,\n    \"id_info_service\": 2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Host}}/request-service",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"request-service"
+					]
+				},
+				"description": "Peticion para crear una nueva solicitud de servicio."
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "ApiKey",
+			"value": "68cd68e26f21228ca03na188ameV"
+		},
+		{
+			"key": "Host",
+			"value": "http://localhost:3000"
+		}
+	]
+}

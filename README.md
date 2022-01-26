@@ -5,7 +5,7 @@
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
 [circleci-url]: https://circleci.com/gh/nestjs/nest
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
+  <p align="center">Es un marco progresivo de <a href="http://nodejs.org" target="_blank">Node.js</a> para crear aplicaciones del lado del servidor eficientes y escalables.</p>
     <p align="center">
 <a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
 <a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
@@ -24,15 +24,43 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Backend para un sistema de ordenes de servicio, la API esta construida como Nestjs y esta deplegada en
+la plataforma de Heroku.
 
-## Installation
+## Despligue en Heroku
+El servicio esta desplagado en Heroku, el cual es una plataforma como servicio de computación en la Nube que soporta distintos lenguajes de programación. 
+
+Enlace de la [API](https://maintenanceservices.herokuapp.com/).
+
+[Documentacion en swagger](https://maintenanceservices.herokuapp.com/api/)
+
+## Proteccion de los Endpoints
+Los endpoints esta protegidos bajo la cabacera 
+> x-api-key
+
+
+
+## Despligue localmente
+Si se desea correr la aplicacion localmente se debe asegurar que existe una base de datos llamada:
+
+> maintenance_service
+
+Ademas puede configurar la informacion que se le proporciona a la base de datos **Postgres** como nombre de usuario, nombre de base de datos y contraseña.
+
+### Ruta del archivo de configuracion para **Postgres**:
+    .
+    ├── src                             # Archivos fuente
+      ├── config-orm                    # Carpeta
+        ├── config-orm.service.ts       # Configuracion de db
+
+
+## Instalacion
 
 ```bash
 $ npm install
 ```
 
-## Running the app
+## Ejecutar el proyecto
 
 ```bash
 # development
@@ -45,29 +73,6 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-## Test
+## Licencias de Nest
 
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+Nest esta sobre la licencia [MIT licensed](LICENSE).
