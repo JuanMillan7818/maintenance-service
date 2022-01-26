@@ -55,6 +55,11 @@ Ademas puede configurar la informacion que se le proporciona a la base de datos 
       ├── config-orm                    # Carpeta
         ├── config-orm.service.ts       # Configuracion de db
 
+## Codigo rapido para crear la base de datos
+En el siguiente directorio se encuentra un archivo .sh que contiene una instruccion para crear la base de datos de forma rapida.
+> src/util/initial-db
+
+
 ## Imagen Docker 
 ### Mediante docker
 ```
