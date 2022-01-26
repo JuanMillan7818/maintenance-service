@@ -34,6 +34,8 @@ Enlace de la [API](https://maintenanceservices.herokuapp.com/).
 
 [Documentacion en swagger](https://maintenanceservices.herokuapp.com/api/)
 
+
+# Despligue local
 ## Proteccion de los Endpoints
 Los endpoints esta protegidos bajo la cabacera 
 > x-api-key
@@ -42,7 +44,7 @@ Los endpoints esta protegidos bajo la cabacera
 
 El valor de esta propiedad se debe establecer en el archivo **.env** donde se almacenan todas las variables de entorno.
 
-## Despligue localmente
+## Base de datos
 Si se desea correr la aplicacion localmente se debe asegurar que existe una base de datos llamada:
 
 > maintenance_service
