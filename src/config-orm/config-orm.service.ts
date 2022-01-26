@@ -16,7 +16,7 @@ export class ConfigOrmService {
         }
     }
 
-    public getTypeOrmConfigDev(): TypeOrmModuleOptions {          
+    public getTypeOrmConfigDev(): TypeOrmModuleOptions {                          
         return {            
             type: 'postgres',           
             host: process.env.POSTGRES_HOST,

@@ -53,6 +53,17 @@ Ademas puede configurar la informacion que se le proporciona a la base de datos 
       ├── config-orm                    # Carpeta
         ├── config-orm.service.ts       # Configuracion de db
 
+## Imagen Docker 
+### Mediante docker
+```
+  docker build . -t services/api
+  docker run -it services/api
+```
+### Mediante docker-compose
+```
+  sudo docker-compose up --build -V
+  sudo docker-compose up dev
+```
 
 ## Instalacion
 
