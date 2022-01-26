@@ -1,5 +1,5 @@
 import { Body, Controller, Get, HttpException, HttpStatus, Param, Post } from '@nestjs/common';
-import { ApiBadRequestResponse, ApiBody, ApiCreatedResponse, ApiHeader, ApiInternalServerErrorResponse, ApiNoContentResponse, ApiOkResponse, ApiTags } from '@nestjs/swagger';
+import { ApiBadRequestResponse, ApiBody, ApiCreatedResponse, ApiHeader, ApiInternalServerErrorResponse, ApiNoContentResponse, ApiOkResponse, ApiParam, ApiTags } from '@nestjs/swagger';
 import { ReqCreateExpertDTO } from 'src/dto/expert.dto';
 import { Description } from 'src/util/descriptions/descriptions';
 import { Expert } from './expert.entity';
@@ -14,8 +14,8 @@ import { ExpertService } from './expert.service';
 export class ExpertController {
     constructor(private service: ExpertService) { }
 
-    @Get()
-    @ApiOkResponse({description: Description.ok})
+    @Get()    
+    @ApiOkResponse({description: `${Description.ok},  Por lo tanto devuelve todos los usuarios que se encuentran registrados como tecnicos de la empresa`})
     @ApiInternalServerErrorResponse({description: Description.error_internal})
     public async getExperts() {
         try {
@@ -28,6 +28,7 @@ export class ExpertController {
     }
 
     @Get('/services/:id')
+    @ApiParam({name: 'id', description: `${Description.params}, Y en este caso buscar todos los servicios asignados a un tecnico en especifico`})
     @ApiOkResponse({description: Description.ok})
     @ApiBadRequestResponse({description: Description.bad_request})
     @ApiNoContentResponse({description: Description.no_found})
@@ -50,6 +51,7 @@ export class ExpertController {
     }
 
     @Get(':id')
+    @ApiParam({name: 'id', description: Description.params})
     @ApiOkResponse({description: Description.ok})
     @ApiBadRequestResponse({description: Description.bad_request})
     @ApiNoContentResponse({description: Description.no_found})
@@ -77,7 +79,7 @@ export class ExpertController {
     @Post()
     @ApiBody({
         type: ReqCreateExpertDTO,
-        description: Description.body_title
+        description: `${Description.body_title}, donde se debe especificar un id del tecnico el cual debe ser un id ya existente de un usuario del sistema`
     })
     @ApiCreatedResponse({description: Description.createOk})
     @ApiBadRequestResponse({description: Description.bad_request})

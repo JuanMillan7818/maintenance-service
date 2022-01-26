@@ -4,7 +4,7 @@ import { generateToken } from 'src/util/token/generate-token';
 import { RequestServiceService } from './request-service.service';
 import { RequestServices } from './request-service.entity';
 import { ResCreateRequest } from 'src/interfaces/create-request';
-import { ApiBadRequestResponse, ApiBody, ApiCreatedResponse, ApiHeader, ApiInternalServerErrorResponse, ApiNoContentResponse, ApiOkResponse, ApiTags } from '@nestjs/swagger';
+import { ApiBadRequestResponse, ApiBody, ApiCreatedResponse, ApiHeader, ApiInternalServerErrorResponse, ApiNoContentResponse, ApiOkResponse, ApiParam, ApiTags } from '@nestjs/swagger';
 import { Description } from 'src/util/descriptions/descriptions';
 
 @ApiHeader({
@@ -17,7 +17,7 @@ export class RequestServiceController {
     constructor(private service: RequestServiceService) {}
 
     @Get()
-    @ApiOkResponse({description: Description.ok})
+    @ApiOkResponse({description: `${Description.ok}, Por lo tanto devuleve todas las solicitudes registradas para salgun servicio`})
     @ApiInternalServerErrorResponse({description: Description.error_internal})
     public async getRequestServices() {
         try {
@@ -30,6 +30,7 @@ export class RequestServiceController {
     }
 
     @Get(':id') 
+    @ApiParam({name: 'id', description: Description.params})
     @ApiOkResponse({description: Description.ok})
     @ApiNoContentResponse({description: Description.no_found})
     @ApiInternalServerErrorResponse({description: Description.error_internal})
@@ -52,7 +53,7 @@ export class RequestServiceController {
     @Post()
     @ApiBody({
         type: ReqCreateRequestDTO,
-        description: Description.body_title
+        description: `${Description.body_title}, Se debe especificar el id del cliente que solicita el servicio y que servicio es el que se encuentra solicitando`
     })    
     @ApiCreatedResponse({description: Description.createOk})
     @ApiBadRequestResponse({description: Description.bad_request})
@@ -91,6 +92,7 @@ export class RequestServiceController {
     }    
 
     @Delete(':id')
+    @ApiParam({name: 'id', description: 'Id relacionado al registro que se desea eliminar'})
     @ApiOkResponse({description: Description.ok})
     @ApiBadRequestResponse({description: Description.bad_request})
     @ApiInternalServerErrorResponse({description: Description.error_internal})

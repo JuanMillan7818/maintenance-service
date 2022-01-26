@@ -15,7 +15,7 @@ export class CustomerController {
     constructor(private service: CustomerService) {}
 
     @Get()    
-    @ApiOkResponse({description: Description.ok})
+    @ApiOkResponse({description: `${Description.ok}, Por lo tanto devuelve todos los usuarios que se encuentran registrados como clientes`})
     @ApiInternalServerErrorResponse({description: Description.error_internal})
     public async getCustomers() {
         try {
@@ -30,7 +30,7 @@ export class CustomerController {
     @Get(':id')    
     @ApiParam({
         name: 'id',
-        description: 'id del Cliente a retornar'
+        description: Description.params
     })
     @ApiOkResponse({description: Description.ok})
     @ApiNoContentResponse({description: Description.no_found})
@@ -54,7 +54,7 @@ export class CustomerController {
     @Post()    
     @ApiBody({ 
         type: ReqCreateCustomerDTO,
-        description: Description.body_title
+        description: `${Description.body_title}, en el cammpo se debe especificar un id ya existente, el cual debe corresponder a un usuario del sistema`
     })
     @ApiCreatedResponse({description: Description.createOk})
     @ApiBadRequestResponse({description: Description.bad_request})

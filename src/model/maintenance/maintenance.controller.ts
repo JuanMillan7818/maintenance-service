@@ -1,5 +1,5 @@
 import { Body, Controller, Delete, Get, HttpException, HttpStatus, Param, Post } from '@nestjs/common';
-import { ApiBadRequestResponse, ApiBody, ApiCreatedResponse, ApiHeader, ApiInternalServerErrorResponse, ApiNoContentResponse, ApiOkResponse, ApiTags } from '@nestjs/swagger';
+import { ApiBadRequestResponse, ApiBody, ApiCreatedResponse, ApiHeader, ApiInternalServerErrorResponse, ApiNoContentResponse, ApiOkResponse, ApiParam, ApiTags } from '@nestjs/swagger';
 import { ReqCreateMaintenanceDTO } from 'src/dto/maintenance.dto';
 import { Description } from 'src/util/descriptions/descriptions';
 import { Maintenance } from './maintenance.entity';
@@ -15,7 +15,7 @@ export class MaintenanceController {
     constructor(private service: MaintenanceService){ }
 
     @Get()
-    @ApiOkResponse({description: Description.ok})
+    @ApiOkResponse({description: `${Description.ok}, Por lo tanto devuelve todos los servicios que la empresa ofrece y que se encuentran registrados`})
     @ApiInternalServerErrorResponse({description: Description.error_internal})
     public async getServicesMaintenance() {
         try {            
@@ -28,6 +28,7 @@ export class MaintenanceController {
     }
 
     @Get(':id')
+    @ApiParam({name: 'id', description: Description.params})
     @ApiOkResponse({description: Description.ok})
     @ApiNoContentResponse({description: Description.no_found})
     @ApiInternalServerErrorResponse({description: Description.error_internal})

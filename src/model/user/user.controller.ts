@@ -1,5 +1,5 @@
 import { Body, Controller, Delete, Get, HttpException, HttpStatus, Param, Post } from '@nestjs/common';
-import { ApiBadRequestResponse, ApiBody, ApiCreatedResponse, ApiHeader, ApiInternalServerErrorResponse, ApiNoContentResponse, ApiOkResponse, ApiTags } from '@nestjs/swagger';
+import { ApiBadRequestResponse, ApiBody, ApiCreatedResponse, ApiHeader, ApiInternalServerErrorResponse, ApiNoContentResponse, ApiOkResponse, ApiParam, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { ReqCreateUserDTO } from 'src/dto/user.dto';
 import { Description } from 'src/util/descriptions/descriptions';
 import { User } from './user.entity';
@@ -14,8 +14,8 @@ import { UserService } from './user.service';
 export class UserController {
     constructor(private service: UserService) {}
 
-    @Get()
-    @ApiOkResponse({description: Description.ok})
+    @Get()    
+    @ApiOkResponse({description: `${Description.ok}, Por lo tanto devuelve todos los usuarios creados en el sistema`})
     @ApiInternalServerErrorResponse({description: Description.error_internal})
     public async getUsers() {
         try {
@@ -29,6 +29,7 @@ export class UserController {
 
 
     @Get(':id')
+    @ApiParam({name: 'id', description: Description.params})
     @ApiOkResponse({description: Description.ok})
     @ApiNoContentResponse({description: Description.no_found})
     @ApiInternalServerErrorResponse({description: Description.error_internal})
@@ -51,7 +52,7 @@ export class UserController {
     @Post()
     @ApiBody({
         type: ReqCreateUserDTO,
-        description: Description.body_title
+        description: `${Description.body_title}, ademas a continuacion se muestra un ejemplo`
     })
     @ApiCreatedResponse({description: Description.createOk})
     @ApiBadRequestResponse({description: Description.bad_request})    

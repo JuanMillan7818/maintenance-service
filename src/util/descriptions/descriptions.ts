@@ -6,4 +6,5 @@ export class Description {
     static bad_request = 'La peticion es incorrecta por parte del cliente';
     static body_title = 'Datos necesarios para la peticion';
     static header = 'Llave necesaria para la conexion a la API';
+    static params = 'Indicar el id para buscar informacion mas detalla del registro';
 }
