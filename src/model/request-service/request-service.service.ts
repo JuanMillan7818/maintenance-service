@@ -39,7 +39,7 @@ export class RequestServiceService {
                 
                 indexRandom = Math.floor(
                     Math.random() * (listData.length - 0));                                       
-                    console.log(indexRandom);
+                    //console.log(indexRandom);
                     
                 let result: DataJoin = await this.requestRepository.query(this.sqlQuerys[0]+listData[indexRandom].id_expert); 
 

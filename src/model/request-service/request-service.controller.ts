@@ -75,7 +75,7 @@ export class RequestServiceController {
                 throw new Error('An error occurred while assigning the request to a technician');
             }
             const token: string = generateToken();
-            console.log(expert, result);
+            //console.log(expert, result);
 
             let resp = new ResCreateRequest(result.first_name, result.last_name, token);         
             await this.service.createService(new RequestServices(
