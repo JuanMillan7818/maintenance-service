@@ -28,7 +28,7 @@ Backend para un sistema de ordenes de servicio, la API esta construida como Nest
 la plataforma de Heroku.
 
 ## Despligue en Heroku
-El servicio esta desplagado en Heroku, el cual es una plataforma como servicio de computación en la Nube que soporta distintos lenguajes de programación. 
+El servicio esta desplegado en Heroku, el cual es una plataforma como servicio de computación en la Nube que soporta distintos lenguajes de programación. 
 
 Enlace de la [API](https://maintenanceservices.herokuapp.com/).
 
