@@ -38,7 +38,7 @@ Enlace de la [API](https://maintenanceservices.herokuapp.com/).
 Los endpoints esta protegidos bajo la cabacera 
 > x-api-key
 
-
+El valor de esta propiedad se debe establecer en el archivo **.env** donde se almacenan todas las variables de entorno.
 
 ## Despligue localmente
 Si se desea correr la aplicacion localmente se debe asegurar que existe una base de datos llamada:
