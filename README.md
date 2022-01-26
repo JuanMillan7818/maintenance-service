@@ -38,6 +38,8 @@ Enlace de la [API](https://maintenanceservices.herokuapp.com/).
 Los endpoints esta protegidos bajo la cabacera 
 > x-api-key
 
+> La variable de entorno se llama API_KEY el cual debe establecer en el .env
+
 El valor de esta propiedad se debe establecer en el archivo **.env** donde se almacenan todas las variables de entorno.
 
 ## Despligue localmente
